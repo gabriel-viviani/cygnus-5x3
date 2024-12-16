@@ -19,9 +19,23 @@
 #
 ---
 include:
+
+    # ProMicro_Dongle
+  - board: nice_nano_v2
+    shield: corne_dongle_pro_micro
+    cmake-args: -DCONFIG_ZMK_KEYBOARD_NAME=\"Cygnus_Dongle\"
+    artifact-name: nice_corne_dongle_pro_micro
+    snippet: zmk-usb-logging
+
   - board: nice_nano_v2
     shield: corne_left
   - board: nice_nano_v2
     shield: corne_right
+  - board: nice_nano_v2
+    shield: settings_reset
+
+
+
+    # settings_reset
   - board: nice_nano_v2
     shield: settings_reset
