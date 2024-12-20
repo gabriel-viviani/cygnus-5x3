@@ -6,16 +6,29 @@
 
 #include "corne.dtsi"
 
-&five_column_transform {
-    col-offset = <5>;
-};
 
-&kscan0 {
-    col-gpios
-        = <&pro_micro 14 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 15 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 18 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 19 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 20 GPIO_ACTIVE_HIGH>
-        ;
+{
+    chosen {
+        zmk,scan-mode = "matrix";
+    };
+
+    split {
+        role = "peripheral";
+    };
+
+    matrix {
+        rows = <5>;
+        cols = <3>;
+        diode-direction = "COL2ROW";
+
+        row-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>,
+                    <&gpio0 7 GPIO_ACTIVE_LOW>,
+                    <&gpio0 8 GPIO_ACTIVE_LOW>,
+                    <&gpio0 9 GPIO_ACTIVE_LOW>,
+                    <&gpio0 10 GPIO_ACTIVE_LOW>;
+
+        col-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>,
+                    <&gpio1 1 GPIO_ACTIVE_LOW>,
+                    <&gpio1 2 GPIO_ACTIVE_LOW>;
+    };
 };
