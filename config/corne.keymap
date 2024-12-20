@@ -1,3 +1,4 @@
+/*
 #include "keys_br_abnt2.h"
 #include "helper.h"
 #include "accents.dtsi"
@@ -221,5 +222,32 @@ UNDEAD_KEY(grave, BR_GRAVE)
                                      &kp J         &kp I         &kp M           &trans  &trans  &trans
             >;
         };
+    };
+};
+*/
+
+{
+    chosen {
+        zmk,scan-mode = "matrix";
+    };
+
+    split {
+        role = "peripheral";
+    };
+
+    matrix {
+        rows = <5>;
+        cols = <3>;
+        diode-direction = "COL2ROW";
+
+        row-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>,
+                    <&gpio0 7 GPIO_ACTIVE_LOW>,
+                    <&gpio0 8 GPIO_ACTIVE_LOW>,
+                    <&gpio0 9 GPIO_ACTIVE_LOW>,
+                    <&gpio0 10 GPIO_ACTIVE_LOW>;
+
+        col-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>,
+                    <&gpio1 1 GPIO_ACTIVE_LOW>,
+                    <&gpio1 2 GPIO_ACTIVE_LOW>;
     };
 };
