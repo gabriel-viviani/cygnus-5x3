@@ -19,7 +19,7 @@
     matrix {
         rows = <5>;
         cols = <3>;
-        diode-direction = "ROW2COL";
+        diode-direction = "COL2ROW";
 
         row-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>,
                     <&gpio0 7 GPIO_ACTIVE_LOW>,
