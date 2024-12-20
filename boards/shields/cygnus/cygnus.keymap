@@ -1,0 +1,166 @@
+/*
+*
+* Copyright (c) 2024 Rafael Romão
+* SPDX-License-Identifier: MIT
+*
+*/
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define QWERTY 0
+#define ROMAK 1
+#define LOWER 2
+#define RAISE 3
+#define FUN 4
+#define NAV 5
+
+/ {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+
+        mk: mk {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&sk>;
+        };
+
+        ht_repeat: ht_repeat {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&key_repeat>;
+        };
+
+        sqt_space: sqt_space {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp SQT &kp SPACE>;
+        };
+
+        dqt_space: dqt_space {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp DQT &kp SPACE>;
+        };
+
+        grv_space: grv_space {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp GRAVE &kp SPACE>;
+        };
+
+        tilde_space: tilde_space {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp TILDE &kp SPACE>;
+        };
+
+        caret_space: caret_space {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp CARET &kp SPACE>;
+        };
+
+        qu: qu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp Q &kp U>;
+        };
+
+        ccedil: ccedil {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp SQT &kp C>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+                qwerty_layer {
+                     display-name = "QWERTY";
+                     bindings = <
+   &kp Q               &kp W               &kp E               &kp R               &kp T               &kp Y               &kp U               &kp I               &kp O               &kp P
+   &mt LGUI A          &mt LALT S          &mt LCTRL D         &mt LSHFT F         &kp G               &kp H               &mt RSHFT J         &mt RCTRL K         &mt RALT L          &mt RGUI SEMI
+   &kp Z               &kp X               &kp C               &kp V               &kp B               &kp N               &kp M               &kp COMMA           &kp DOT             &qu
+                                           &to QWERTY          &ht_repeat FUN 0    &lt LOWER SPACE     &lt RAISE BACKSPACE &mk NAV LSHFT       &to ROMAK
+                        >;
+                };
+                romak_layer {
+                     display-name = "ROMAK";
+                     bindings = <
+   &kp Q               &kp B               &kp M               &kp G               &kp K               &kp X               &kp L               &kp O               &kp U               &kp Y
+   &mt LGUI D          &mt LALT N          &mt LCTRL S         &mt LSHFT T         &kp W               &kp Z               &mt RSHFT R         &mt RCTRL A         &mt RALT E          &mt RGUI I
+   &qu                 &kp F               &kp C               &kp P               &kp V               &kp J               &kp H               &kp COMMA           &kp DOT             &kp SEMI
+                                           &to QWERTY          &ht_repeat FUN 0    &lt LOWER SPACE     &lt RAISE BACKSPACE &mk NAV LSHFT       &to ROMAK
+                        >;
+                };
+                lower_layer {
+                     display-name = "LOWER";
+                     bindings = <
+   &none               &kp LBRC            &kp RBRC            &kp BSLH            &none               &none               &kp N7              &kp N8              &kp N9              &none
+   &kp AT              &kp LPAR            &kp RPAR            &kp AMPS            &none               &none               &kp N4              &kp N5              &kp N6              &kp DOT
+   &kp UNDERSCORE      &kp LBKT            &kp RBKT            &kp PIPE            &none               &none               &kp N1              &kp N2              &kp N3              &kp COMMA
+                                           &none               &none               &none               &trans              &lt NAV N0          &none
+                           >;
+                };
+                raise_layer {
+                    display-name = "RAISE";
+                    bindings = <
+   &none               &kp LT              &kp GT              &kp HASH            &none               &none               &kp PERCENT         &kp EQUAL         &kp COLON             &none
+   &caret_space        &sqt_space          &dqt_space          &tilde_space        &grv_space          &none               &kp QUESTION        &kp MINUS         &kp PLUS              &kp DOLLAR
+   &kp CARET           &kp SQT             &ccedil             &kp TILDE           &kp GRAVE           &none               &kp EXCL            &kp SLASH         &kp STAR              &none
+                                           &none               &key_repeat         &kp SPACE           &none               &none               &none
+                          >;
+               };
+                functions_layer {
+                     display-name = "FUN";
+                     bindings = <
+   &kp LS(LC(LA(N9)))  &kp LS(LC(LA(N8)))  &kp LS(LC(LA(N7)))  &kp LS(LC(LA(N6)))  &kp LS(LC(LA(N5)))  &kp F12             &kp F7              &kp F8              &kp F9              &kp F15
+   &sk LGUI            &sk LALT            &sk LCTRL           &sk LSHFT           &kp LS(LC(LA(AT)))  &kp F11             &kp F4              &kp F5              &kp F6              &kp F14
+   &kp LS(LC(LA(N4)))  &kp LS(LC(LA(N3)))  &kp LS(LC(LA(N2)))  &kp LS(LC(LA(N1)))  &kp LS(LC(LA(N0)))  &kp F10             &kp F1              &kp F2              &kp F3              &kp F13
+                                           &studio_unlock      &none               &bootloader         &bt BT_PRV          &bt BT_NXT          &bt BT_CLR
+                        >;
+                };
+                navigation_layer {
+                    display-name = "NAV";
+                    bindings = <
+   &kp CAPSLOCK        &kp HOME            &kp UP              &kp END             &kp LS(LC(LA(LG(N3)))) &kp LS(LC(LA(LG(N6)))) &kp TAB             &kp ENTER           &kp ESC             &kp LS(LC(LA(LG(N9))))
+   &caps_word          &kp LEFT            &kp DOWN            &kp RIGHT           &kp LS(LC(LA(LG(N2)))) &kp LS(LC(LA(LG(N5)))) &kp C_MUTE          &kp C_VOL_DN        &kp C_VOL_UP        &kp LS(LC(LA(LG(N8))))
+   &kp INS             &kp PG_DN           &kp DEL             &kp PG_UP           &kp LS(LC(LA(LG(N1)))) &kp LS(LC(LA(LG(N4)))) &kp C_PP            &kp C_PREV          &kp C_NEXT          &kp LS(LC(LA(LG(N7))))
+                                           &none               &kp LS(LC(LA(LG(N0)))) &kp SPACE           &bootloader            &none               &none
+                           >;
+                };
+
+                layer6 {
+                    status = "reserved";
+                };
+
+                layer7 {
+                    status = "reserved";
+                };
+
+                layer8 {
+                    status = "reserved";
+                };
+
+                layer9 {
+                    status = "reserved";
+                };
+
+                layer10 {
+                    status = "reserved";
+                };
+    };
+};
