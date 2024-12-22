@@ -81,14 +81,14 @@
             #binding-cells = <0>;
             tapping-term-ms = <180>;
             bindings = <&mt LSHIFT ESC>, <&kp CAPSLOCK>;
-        }
+        };
 
         alt_to: alt_or_to_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <180>;
             bindings = <&kt LALT>, <&to EXTRA>;
-        }
+        };
 
 
 
