@@ -20,7 +20,7 @@
         dt: double_tap {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <180>;
             bindings = <&kp SEMI>, <&kp COLON>;
         };
 
@@ -90,8 +90,6 @@
             bindings = <&kt LALT>, <&to EXTRA>;
         };
 
-
-
     };
 
     keymap {
@@ -141,6 +139,9 @@
    &kp INS             &kp PG_DN           &kp DEL             &kp PG_UP           &kp LS(LC(LA(LG(N1)))) &kp LS(LC(LA(LG(N4)))) &kp C_PP            &kp C_PREV          &kp C_NEXT          &kp LS(LC(LA(LG(N7))))
                                            &none               &kp LS(LC(LA(LG(N0)))) &kp SPACE           &bootloader            &none               &none
                            >;
+                };
+                layer5 {
+                    status = "reserved";
                 };
 
                 layer6 {
