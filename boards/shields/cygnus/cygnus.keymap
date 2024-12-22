@@ -10,20 +10,18 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define QWERTY 0
-#define ROMAK 1
-#define LOWER 2
-#define RAISE 3
-#define FUN 4
-#define NAV 5
+#define SYMBOLS 1
+#define NUMBERS 2
+#define EXTRA 3
+#define NAV 4
 
 / {
     behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+        dt: double_tap {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&kp SEMI>, <&kp COLON>;
         };
 
         mk: mk {
@@ -72,17 +70,28 @@
             bindings = <&macro_tap &kp CARET &kp SPACE>;
         };
 
-        qu: qu {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp Q &kp U>;
-        };
-
         ccedil: ccedil {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp SQT &kp C>;
         };
+
+        esc_shf_kps: esc_shift_caps_tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <180>;
+            bindings = <&mt LSHIFT ESC>, <&kp CAPSLOCK>;
+        }
+
+        alt_to: alt_or_to_layer {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <180>;
+            bindings = <&kt LALT>, <&to EXTRA>;
+        }
+
+
+
     };
 
     keymap {
@@ -92,22 +101,13 @@
                      display-name = "QWERTY";
                      bindings = <
    &kp Q               &kp W               &kp E               &kp R               &kp T               &kp Y               &kp U               &kp I               &kp O               &kp P
-   &mt LGUI A          &mt LALT S          &mt LCTRL D         &mt LSHFT F         &kp G               &kp H               &mt RSHFT J         &mt RCTRL K         &mt RALT L          &mt RGUI SEMI
-   &kp Z               &kp X               &kp C               &kp V               &kp B               &kp N               &kp M               &kp COMMA           &kp DOT             &qu
-                                           &to QWERTY          &ht_repeat FUN 0    &lt LOWER SPACE     &lt RAISE BACKSPACE &mk NAV LSHFT       &to QWERTY
+   &mt LSHFT A         &kp S               &kp D               &mt LSHFT F         &kp G               &kp H               &kp J               &kp K               &kp L               &dt
+   &mt LGUI Z          &kp X               &kp C               &kp V               &kp B               &kp N               &kp M               &kp COMMA           &kp DOT             &mt LALT FSLH
+                                   &alt_to      &ht_repeat NUMBERS BACKSPACE   &mt LCTRL TAB           &esc_shf_kps     &ht_repeat SYMBOLS SPACE        &ht_repeat QWERTY ENTER
                         >;
                 };
-                romak_layer {
-                     display-name = "ROMAK";
-                     bindings = <
-   &kp Q               &kp B               &kp M               &kp G               &kp K               &kp X               &kp L               &kp O               &kp U               &kp Y
-   &mt LGUI D          &mt LALT N          &mt LCTRL S         &mt LSHFT T         &kp W               &kp Z               &mt RSHFT R         &mt RCTRL A         &mt RALT E          &mt RGUI I
-   &qu                 &kp F               &kp C               &kp P               &kp V               &kp J               &kp H               &kp COMMA           &kp DOT             &kp SEMI
-                                           &to QWERTY          &ht_repeat FUN 0    &lt LOWER SPACE     &lt RAISE BACKSPACE &mk NAV LSHFT       &to ROMAK
-                        >;
-                };
-                lower_layer {
-                     display-name = "LOWER";
+                symbols_layer {
+                     display-name = "SYMBOLS";
                      bindings = <
    &none               &kp LBRC            &kp RBRC            &kp BSLH            &none               &none               &kp N7              &kp N8              &kp N9              &none
    &kp AT              &kp LPAR            &kp RPAR            &kp AMPS            &none               &none               &kp N4              &kp N5              &kp N6              &kp DOT
@@ -115,17 +115,17 @@
                                            &none               &none               &none               &trans              &lt NAV N0          &none
                            >;
                 };
-                raise_layer {
-                    display-name = "RAISE";
+                numbers_layer {
+                    display-name = "NUMBERS";
                     bindings = <
-   &none               &kp LT              &kp GT              &kp HASH            &none               &none               &kp PERCENT         &kp EQUAL         &kp COLON             &none
+   &kp N1              &kp N2              &kp N3              &kp N4              &kp N5              &N6                 &N7                 &kp N8            &kp N9                &N0
    &caret_space        &sqt_space          &dqt_space          &tilde_space        &grv_space          &none               &kp QUESTION        &kp MINUS         &kp PLUS              &kp DOLLAR
    &kp CARET           &kp SQT             &ccedil             &kp TILDE           &kp GRAVE           &none               &kp EXCL            &kp SLASH         &kp STAR              &none
                                            &none               &key_repeat         &kp SPACE           &none               &none               &none
                           >;
                };
-                functions_layer {
-                     display-name = "FUN";
+                extra_layer {
+                     display-name = "EXTRA";
                      bindings = <
    &kp LS(LC(LA(N9)))  &kp LS(LC(LA(N8)))  &kp LS(LC(LA(N7)))  &kp LS(LC(LA(N6)))  &kp LS(LC(LA(N5)))  &kp F12             &kp F7              &kp F8              &kp F9              &kp F15
    &sk LGUI            &sk LALT            &sk LCTRL           &sk LSHFT           &kp LS(LC(LA(AT)))  &kp F11             &kp F4              &kp F5              &kp F6              &kp F14
