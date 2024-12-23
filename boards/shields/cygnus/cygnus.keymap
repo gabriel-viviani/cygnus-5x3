@@ -91,7 +91,7 @@
         };
         kl: key_or_layer {
             compatible = "zmk,behaviour-tap-dance";
-            #binding-cells =  <0>;
+            #binding-cells =  <2>;
             tapping-term-ms = <180>;
             bidings = <&kp>, <&mo>;
         };
@@ -106,7 +106,7 @@
    &kp Q               &kp W               &kp E               &kp R               &kp T               &kp Y               &kp U               &kp I               &kp O               &kp P
    &mt LSHFT A         &kp S               &kp D               &mt LSHFT F         &kp G               &kp H               &kp J               &kp K               &kp L               &dt
    &mt LGUI Z          &kp X               &kp C               &kp V               &kp B               &kp N               &kp M               &kp COMMA           &kp DOT             &mt LALT FSLH
-                                        &alt_to      &lt BSPC NUMBERS            &mt LCTRL TAB         &esc_shf_kps     &lt SPACE SYMBOLS        &lt QWERTY ENTER
+                                        &alt_to      &kl BSPC NUMBERS            &mt LCTRL TAB         &esc_shf_kps     &kl SPACE SYMBOLS        &kl QWERTY ENTER
                         >;
                 };
                 symbols_layer {
