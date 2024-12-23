@@ -93,19 +93,19 @@
             compatible = "zmk,behaviour-tap-dance";
             #binding-cells =  <0>;
             tapping-term-ms = <180>;
-            bidings = <&kp SPACE>, <&mo SYMBOLS>;
+            bindings = <&kp SPACE>, <&mo SYMBOLS>;
         };
         ent_l: enter_or_layer {
             compatible = "zmk,behaviour-tap-dance";
             #binding-cells =  <0>;
             tapping-term-ms = <180>;
-            bidings = <&kp ENTER>, <&mo SYMBOLS>;
+            bindings = <&kp ENTER>, <&mo SYMBOLS>;
         };
         bksp_l: backspace_or_layer {
             compatible = "zmk,behaviour-tap-dance";
             #binding-cells =  <0>;
             tapping-term-ms = <180>;
-            bidings = <&kp BSPC>, <&mo NUMBERS>;
+            bindings = <&kp BSPC>, <&mo NUMBERS>;
         };
     };
 
@@ -118,7 +118,7 @@
    &kp Q               &kp W               &kp E               &kp R               &kp T               &kp Y               &kp U               &kp I               &kp O               &kp P
    &mt LSHFT A         &kp S               &kp D               &mt LSHFT F         &kp G               &kp H               &kp J               &kp K               &kp L               &dt
    &mt LGUI Z          &kp X               &kp C               &kp V               &kp B               &kp N               &kp M               &kp COMMA           &kp DOT             &mt LALT FSLH
-                                           &alt_to      &kp BSPC            &mt LCTRL TAB               &esc_shf_kps        &spc_l        &ent_l
+                                           &alt_to      &bksp_l            &mt LCTRL TAB               &esc_shf_kps        &spc_l        &ent_l
                         >;
                 };
                 symbols_layer {
