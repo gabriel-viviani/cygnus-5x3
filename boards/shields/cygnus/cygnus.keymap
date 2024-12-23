@@ -91,21 +91,21 @@
         };
         spc_l: space_or_layer {
             compatible = "zmk,behaviour-tap-dance";
-            #binding-cells =  <0>;
+            #binding-cells = <0>;
             tapping-term-ms = <180>;
             bindings = <&kp SPACE>, <&mo SYMBOLS>;
         };
         ent_l: enter_or_layer {
             compatible = "zmk,behaviour-tap-dance";
-            #binding-cells =  <0>;
+            #binding-cells = <0>;
             tapping-term-ms = <180>;
             bindings = <&kp ENTER>, <&mo SYMBOLS>;
         };
         bksp_l: backspace_or_layer {
             compatible = "zmk,behaviour-tap-dance";
-            #binding-cells =  <0>;
+            #binding-cells = <0>;
             tapping-term-ms = <180>;
-            bindings = <&kp BSPC>, <&to NUMBERS>;
+            bindings = <&kp BSPC>, <&mo NUMBERS>;
         };
     };
 
