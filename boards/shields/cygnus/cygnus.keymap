@@ -106,25 +106,25 @@
    &kp Q               &kp W               &kp E               &kp R               &kp T               &kp Y               &kp U               &kp I               &kp O               &kp P
    &mt LSHFT A         &kp S               &kp D               &mt LSHFT F         &kp G               &kp H               &kp J               &kp K               &kp L               &dt
    &mt LGUI Z          &kp X               &kp C               &kp V               &kp B               &kp N               &kp M               &kp COMMA           &kp DOT             &mt LALT FSLH
-                                   &alt_to      &kl BACKSPACE NUMBERS      &mt LCTRL TAB               &esc_shf_kps     &kl SPACE SYMBOLS        &kl QWERTY ENTER
+                                        &alt_to      &lt BSPC NUMBERS            &mt LCTRL TAB         &esc_shf_kps     &lt SPACE SYMBOLS        &lt QWERTY ENTER
                         >;
                 };
                 symbols_layer {
                      display-name = "SYMBOLS";
                      bindings = <
-   &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT                         &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR
-   &kp C_PREV &kp C_PP &kp C_NEXT   &trans   &trans                   &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH
-   &trans   &trans &trans   &kp TILDE &kp GRAVE                         &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE
-                        &kp LCTRL &kp BSPC   &kp DEL                                &kp RET   &kp SPACE &trans
+   &kp EXCL     &kp AT      &kp HASH     &kp DLLR   &kp PRCNT                &kp CARET  &kp AMPS    &kp KP_MULTIPLY  &kp LPAR   &kp RPAR
+   &kp C_PREV   &kp C_PP    &kp C_NEXT   &trans     &trans                   &kp MINUS  &kp EQUAL   &kp LBKT         &kp RBKT   &kp BSLH
+   &trans       &trans      &trans       &kp TILDE  &kp GRAVE                &kp UNDER  &kp PLUS    &kp LBRC         &kp RBRC   &kp PIPE
+                        &kp LCTRL        &kp BSPC   &kp DEL                  &kp RET    &kp SPACE   &trans
                         >;
                 };
                 numbers_layer {
                     display-name = "NUMBERS";
                     bindings = <
-   &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                       &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
-   &kp F1 &kp F2 &kp F3 &kp F4 &kp F5                     &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp F11
-   &bt BT_CLR &bt BT_PRV &bt BT_NXT &trans &trans            &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
-                        &kp LCTRL &kp BSPC &kp DEL                     &kp RET &kp SPACE &kp RALT
+   &kp N1       &kp N2      &kp N3      &kp N4      &kp N5                     &kp N6    &kp N7      &kp N8      &kp N9      &kp N0
+   &kp F1       &kp F2      &kp F3      &kp F4      &kp F5                     &kp LEFT  &kp DOWN    &kp UP      &kp RIGHT   &kp F11
+   &bt BT_CLR   &bt BT_PRV  &bt BT_NXT  &trans      &trans                     &kp F6    &kp F7      &kp F8      &kp F9      &kp F10
+                            &kp LCTRL   &kp BSPC    &kp DEL                    &kp RET   &kp SPACE   &kp RALT
                         >;
                };
                 extra_layer {
