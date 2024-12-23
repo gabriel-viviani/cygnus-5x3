@@ -116,7 +116,7 @@
                 numbers_layer {
                     display-name = "NUMBERS";
                     bindings = <
-   &kp N1              &kp N2              &kp N3              &kp N4              &kp N5              &N6                 &N7                 &kp N8            &kp N9                &N0
+   &kp N1              &kp N2              &kp N3              &kp N4              &kp N5              &N6                 &N7                 &kp N8            &kp N9                &kp N0
    &caret_space        &sqt_space          &dqt_space          &tilde_space        &grv_space          &none               &kp QUESTION        &kp MINUS         &kp PLUS              &kp DOLLAR
    &kp CARET           &kp SQT             &ccedil             &kp TILDE           &kp GRAVE           &none               &kp EXCL            &kp SLASH         &kp STAR              &none
                                            &none               &key_repeat         &kp SPACE           &none               &none               &none
