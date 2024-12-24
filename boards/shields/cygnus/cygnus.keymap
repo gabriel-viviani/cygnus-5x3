@@ -86,26 +86,35 @@
         alt_to: alt_or_to_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             bindings = <&kt LALT>, <&to EXTRA>;
         };
         spc_l: space_or_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             bindings = <&kp SPACE>, <&mo SYMBOLS>;
         };
         ent_l: enter_or_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             bindings = <&kp ENTER>, <&mo SYMBOLS>;
         };
         bksp_l: backspace_or_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             bindings = <&kp BSPC>, <&mo NUMBERS>;
+        };
+        &mt {
+            tapping-term-ms=<350>;
+        };
+        pq: p_or_quotes {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp P>, <&kp SQT>, <&kp DQT>;
         };
     };
 
@@ -115,10 +124,10 @@
                 qwerty_layer {
                      display-name = "QWERTY";
                      bindings = <
-   &kp Q               &kp W               &kp E               &kp R               &kp T               &kp Y               &kp U               &kp I               &kp O               &kp P
-   &mt LSHFT A         &kp S               &kp D               &mt LSHFT F         &kp G               &kp H               &kp J               &kp K               &kp L               &dt
+   &kp Q               &kp W               &kp E               &kp R               &kp T               &kp Y               &kp U               &kp I               &kp O               &pq
+   &mt LSHFT A         &kp S               &kp D               &mt TAB F           &kp G               &kp H               &kp J               &kp K               &kp L               &dt
    &mt LGUI Z          &kp X               &kp C               &kp V               &kp B               &kp N               &kp M               &kp COMMA           &kp DOT             &mt LALT FSLH
-                                           &alt_to      &bksp_l            &mt LCTRL TAB               &esc_shf_kps        &spc_l        &ent_l
+                                           &alt_to      &bksp_l            &mt LCTRL TAB               &ent_l              &spc_l        &esc_shf_kps
                         >;
                 };
                 symbols_layer {
