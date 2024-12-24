@@ -107,9 +107,6 @@
             tapping-term-ms = <200>;
             bindings = <&kp BSPC>, <&mo NUMBERS>;
         };
-        &mt {
-            tapping-term-ms=<350>;
-        };
         pq: p_or_quotes {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -117,7 +114,9 @@
             bindings = <&kp P>, <&kp SQT>, <&kp DQT>;
         };
     };
-
+    &mt {
+            tapping-term-ms=<350>;
+        };
     keymap {
         compatible = "zmk,keymap";
 
