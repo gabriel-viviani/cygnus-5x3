@@ -92,25 +92,25 @@
         spc_l: space_or_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             bindings = <&kp SPACE>, <&mo SYMBOLS>;
         };
         ent_l: enter_or_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             bindings = <&kp ENTER>, <&mo SYMBOLS>;
         };
         bksp_l: backspace_or_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             bindings = <&kp BSPC>, <&mo NUMBERS>;
         };
         pq: p_or_quotes {
             compatible = "zmk,avior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             bindings = <&kp P>, <&kp SQT>, <&kp DQT>;
         };
         mtr: mod_tap_reimpl {
@@ -122,6 +122,12 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+        mtm: mod_tap_toogle_mod {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mtr LGUI Z>, <&kt LGUI>;
+        };
     };
 
     keymap {
@@ -132,7 +138,7 @@
                      bindings = <
    &kp Q               &kp W               &kp E               &kp R               &kp T               &kp Y               &kp U               &kp I               &kp O               &pq
    &mtr LSHFT A        &kp S               &kp D               &mtr TAB F          &kp G               &kp H               &kp J               &kp K               &kp L               &dt
-   &mtr LGUI Z         &kp X               &kp C               &kp V               &kp B               &kp N               &kp M               &kp COMMA           &kp DOT             &mtr LALT FSLH
+   &mtm                &kp X               &kp C               &kp V               &kp B               &kp N               &kp M               &kp COMMA           &kp DOT             &mtr LALT FSLH
                                            &alt_to      &bksp_l            &mtr LCTRL TAB               &ent_l              &spc_l        &esc_shf_kps
                         >;
                 };
