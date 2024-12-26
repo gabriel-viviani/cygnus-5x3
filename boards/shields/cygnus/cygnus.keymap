@@ -108,7 +108,7 @@
             bindings = <&kp BSPC>, <&mo NUMBERS>;
         };
         pq: p_or_quotes {
-            compatible = "zmk,avior-tap-dance";
+            compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp P>, <&kp SQT>, <&kp DQT>;
