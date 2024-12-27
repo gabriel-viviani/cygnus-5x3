@@ -87,26 +87,21 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kt LALT>, <&to EXTRA>;
+            bindings = <&kt LALT>, <&mo NUMBERS>, <&to NUMBERS>;
         };
         spc_l: space_or_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <180>;
             bindings = <&kp SPACE>, <&mo SYMBOLS>;
         };
         ent_l: enter_or_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <180>;
             bindings = <&kp ENTER>, <&mo SYMBOLS>;
         };
-        bksp_l: backspace_or_layer {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp BSPC>, <&mo NUMBERS>;
-        };
+
         pq: p_or_quotes {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -139,7 +134,7 @@
    &kp Q               &kp W               &kp E               &kp R               &kp T               &kp Y               &kp U               &kp I               &kp O               &pq
    &mtr LSHFT A        &kp S               &kp D               &mtr TAB F          &kp G               &kp H               &kp J               &kp K               &kp L               &dt
    &mtm                &kp X               &kp C               &kp V               &kp B               &kp N               &kp M               &kp COMMA           &kp DOT             &mtr LALT FSLH
-                                           &alt_to      &bksp_l            &mtr LCTRL TAB               &ent_l              &spc_l        &esc_shf_kps
+                                           &alt_to          &kp BSPC            &mtr LCTRL TAB               &ent_l              &spc_l        &esc_shf_kps
                         >;
                 };
                 symbols_layer {
@@ -148,16 +143,16 @@
    &kp EXCL     &kp AT      &kp HASH     &kp DLLR   &kp PRCNT                &kp CARET  &kp AMPS    &kp KP_MULTIPLY  &kp LPAR   &kp RPAR
    &kp C_PREV   &kp C_PP    &kp C_NEXT   &trans     &trans                   &kp MINUS  &kp EQUAL   &kp LBKT         &kp RBKT   &kp BSLH
    &trans       &trans      &trans       &kp TILDE  &kp GRAVE                &kp UNDER  &kp PLUS    &kp LBRC         &kp RBRC   &kp PIPE
-                        &kp LCTRL        &kp BSPC   &kp DEL                  &kp RET    &kp SPACE   &trans
+                        &kp LCTRL        &kp BSPC   &kp DEL                  &kp RET    &kp SPACE   &to QUERTY
                         >;
                 };
                 numbers_layer {
                     display-name = "NUMBERS";
                     bindings = <
-   &kp N1       &kp N2      &kp N3      &kp N4      &kp N5                     &kp N6    &kp N7      &kp N8      &kp N9      &kp N0
-   &kp F1       &kp F2      &kp F3      &kp F4      &kp F5                     &kp LEFT  &kp DOWN    &kp UP      &kp RIGHT   &kp F11
-   &bt BT_CLR   &bt BT_PRV  &bt BT_NXT  &trans      &trans                     &kp F6    &kp F7      &kp F8      &kp F9      &kp F10
-                            &kp LCTRL   &kp BSPC    &kp DEL                    &kp RET   &kp SPACE   &kp RALT
+   &kp N1            &kp N2      &kp N3      &kp N4      &kp N5                     &kp N6    &kp N7      &kp N8      &kp N9      &kp N0
+   &mtr LSHFT F1     &kp F2      &kp F3      &kp F4      &kp F5                     &kp LEFT  &kp DOWN    &kp UP      &kp RIGHT   &kp F11
+   &mtm &trans       &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &trans                    &kp F6    &kp F7      &kp F8      &kp F9      &kp F10
+                            &kp LCTRL   &kp BSPC    &kp DEL                    &kp RET   &kp SPACE   &to QWERTY
                         >;
                };
                 extra_layer {
