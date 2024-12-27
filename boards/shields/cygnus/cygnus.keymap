@@ -151,7 +151,7 @@
                     bindings = <
    &kp N1            &kp N2      &kp N3      &kp N4      &kp N5                     &kp N6    &kp N7      &kp N8      &kp N9      &kp N0
    &mtr LSHFT F1     &kp F2      &kp F3      &kp F4      &kp F5                     &kp LEFT  &kp DOWN    &kp UP      &kp RIGHT   &kp F11
-   &mtm &trans       &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &trans                    &kp F6    &kp F7      &kp F8      &kp F9      &kp F10
+   &mtm             &trans       &bt BT_CLR  &bt BT_PRV  &bt BT_NXT                 &kp F6    &kp F7      &kp F8      &kp F9      &kp F10
                             &kp LCTRL   &kp BSPC    &kp DEL                    &kp RET   &kp SPACE   &to QWERTY
                         >;
                };
