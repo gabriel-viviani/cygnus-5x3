@@ -112,7 +112,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "MOD_TAP_BY_HOLD_TAP";
             #binding-cells = <2>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
@@ -161,7 +161,7 @@
    &kp LS(LC(LA(N9)))  &kp LS(LC(LA(N8)))  &kp LS(LC(LA(N7)))  &kp LS(LC(LA(N6)))  &kp LS(LC(LA(N5)))  &kp F12             &kp F7              &kp F8              &kp F9              &kp F15
    &sk LGUI            &sk LALT            &sk LCTRL           &sk LSHFT           &kp LS(LC(LA(AT)))  &kp F11             &kp F4              &kp F5              &kp F6              &kp F14
    &kp LS(LC(LA(N4)))  &kp LS(LC(LA(N3)))  &kp LS(LC(LA(N2)))  &kp LS(LC(LA(N1)))  &kp LS(LC(LA(N0)))  &kp F10             &kp F1              &kp F2              &kp F3              &kp F13
-                                           &studio_unlock      &none               &bootloader         &bt BT_PRV          &bt BT_NXT          &bt BT_CLR
+                                           &trans      &none               &bootloader         &bt BT_PRV          &bt BT_NXT          &bt BT_CLR
                         >;
                 };
                 navigation_layer {
